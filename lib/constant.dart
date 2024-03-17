@@ -13,4 +13,4 @@ const largeTextStyle = TextStyle(
     fontSize: 60.0,
     color: Colors.white,
     fontWeight: FontWeight.w900,
-);
+); 

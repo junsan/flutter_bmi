@@ -4,10 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'content_widget.dart';
-import 'reusable_card.dart';
-import 'constant.dart';
+import '../components/content_widget.dart';
+import '../components/reusable_card.dart';
+import '../constant.dart';
 import 'results_page.dart';
+import '../components/round_button.dart';
+import '../components/bottom_button.dart';
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -207,53 +209,13 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          MouseRegion(
-            cursor: SystemMouseCursors.click,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage()));
-              },
-              child: Container(
-                alignment: Alignment.center,
-                child: Text('CALCULATE',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25.0
-                  ),
-                ),
-                color: Color(0xFFEB1555),
-                width: double.infinity,
-                height: bottomContainerHeight,
-                margin: EdgeInsets.only(top: 10.0),
-              ),
-            ),
-          )
+          BottomButton(
+            title: 'CALCULATE',
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage()));
+            },
+          ),
         ],
-      ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-
-  RoundIconButton({required this.child, required this.onPressData});
-
-  final Widget? child;
-  final Function()? onPressData;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onPressData,
-      child: child,
-      fillColor: Color(0xFF4C4F5E),
-      shape: CircleBorder(),
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0
-      ),
-      textStyle: TextStyle(
-        color: Colors.white
       ),
     );
   }

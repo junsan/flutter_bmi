@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'constant.dart';
+import 'package:flutter_bmi/components/bottom_button.dart';
+import '../constant.dart';
 
 class ResultsPage extends StatelessWidget {
 
@@ -67,25 +68,12 @@ class ResultsPage extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            flex: 1,
-            child: GestureDetector(
+          BottomButton(
+              title: 'RE-CALCULATE',
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Container(
-                margin: EdgeInsets.only(top: 10),
-                alignment: Alignment.center,
-                child: Text('RE-CALCULATE',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25.0
-                  ),
-                ),
-                color: Color(0xFFEB1555),
-              ),
-            ),
-          )
+          ),
         ],
       ),
     );
