@@ -10,6 +10,7 @@ import '../constant.dart';
 import 'results_page.dart';
 import '../components/round_button.dart';
 import '../components/bottom_button.dart';
+import '../components/bmi_calculator.dart';
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -212,7 +213,16 @@ class _InputPageState extends State<InputPage> {
           BottomButton(
             title: 'CALCULATE',
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage()));
+
+              BmiCalculator calc = BmiCalculator();
+
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => ResultsPage(
+                    bmiResult: calc.bmiResult(height, weight),
+                    resultText: calc.getResult(),
+                    interpretation: calc.getInterpretation(),
+                  )
+              ));
             },
           ),
         ],
