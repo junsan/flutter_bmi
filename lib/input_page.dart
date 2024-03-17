@@ -6,7 +6,6 @@ import 'content_widget.dart';
 import 'reusable_card.dart';
 import 'constant.dart';
 
-
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
   @override
@@ -22,7 +21,9 @@ class _InputPageState extends State<InputPage> {
 
   GenderChoice? selectedGender;
   int height = 180;
-
+  int weight = 60;
+  int age = 18;
+  
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -114,10 +115,80 @@ class _InputPageState extends State<InputPage> {
               Expanded(
                 child: ReusableCard(
                   colour: backgroundColour,
+                  childContent: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('WEIGHT',
+                        style: labelTextStyle,
+                      ),
+                      Text(weight.toString(),
+                        style: largeTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          RoundIconButton(
+                            onPressData: () {
+                              setState(() {
+                                  weight--;
+                              });
+                            },
+                            child: Icon(FontAwesomeIcons.minus),
+                          ),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          RoundIconButton(
+                            child: Icon(FontAwesomeIcons.plus),
+                            onPressData: () {
+                              setState(() {
+                                weight++;
+                              });
+                            },
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
               Expanded(
                 child: ReusableCard(
+                  childContent: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('AGE',
+                        style: labelTextStyle,
+                      ),
+                      Text(age.toString(),
+                        style: largeTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          RoundIconButton(
+                            onPressData: () {
+                              setState(() {
+                                age--;
+                              });
+                            },
+                            child: Icon(FontAwesomeIcons.minus),
+                          ),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          RoundIconButton(
+                            child: Icon(FontAwesomeIcons.plus),
+                            onPressData: () {
+                              setState(() {
+                                age++;
+                              });
+                            },
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                   colour: backgroundColour,
                 ),
               ),
@@ -131,6 +202,31 @@ class _InputPageState extends State<InputPage> {
           margin: EdgeInsets.only(top: 10.0),
         )
       ],
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+
+  RoundIconButton({required this.child, required this.onPressData});
+
+  final Widget? child;
+  final Function()? onPressData;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: onPressData,
+      child: child,
+      fillColor: Color(0xFF4C4F5E),
+      shape: CircleBorder(),
+      constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0
+      ),
+      textStyle: TextStyle(
+        color: Colors.white
+      ),
     );
   }
 }
