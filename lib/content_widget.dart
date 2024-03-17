@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'constant.dart';
 
 class ContentWidget extends StatelessWidget {
 
@@ -6,12 +7,6 @@ class ContentWidget extends StatelessWidget {
 
   final String contentText;
   final IconData genderIcon;
-
-  final labelTextStyle = TextStyle(
-      fontSize: 15.0,
-      color: Color(0xFF8D8E98)
-  );
-
   final colorWhite = Colors.white;
 
   @override
