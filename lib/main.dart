@@ -18,17 +18,7 @@ class BMICalculator extends StatelessWidget {
             bodyMedium: TextStyle(color: Colors.white, fontSize: 20)),
       ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Color(0xFF0A0E21),
-          title: const Text(
-            'BMI Calculator',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-        body: const InputPage(),
-      ),
+      home: InputPage(),
     );
   }
 }
